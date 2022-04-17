@@ -27,10 +27,6 @@ Pesquisa por gênero de filmes favorito/mais assistidos:
 
 ![Filmes](src/img-readme/genero-filme.png)
 
-Pesquisa por gênero de filmes favorito/mais assistidos:
-
-![Filmes](src/img-readme/genero-filme.png)
-
 Pesquisa por gênero de séries favorito/mais assistidos:
 
 ![Séries](src/img-readme/genero-serie.png)

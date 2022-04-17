@@ -121,5 +121,12 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 2em;
+}
+
+#feedback.send{
+  color: green;
+}
+
+#feedback.error{
   color: red;
 }

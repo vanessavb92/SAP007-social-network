@@ -40,9 +40,13 @@ export const reset = () => {
     console.log(email);
     resetPassword(email)
       .then(() => {
+        feedback.classList.remove('error');
+        feedback.classList.add('send');
         feedback.innerHTML = 'E-mail para redefinição de senha enviado';
       }).catch((error) => {
         const errorCode = error.code;
+        feedback.classList.remove('send');
+        feedback.classList.add('error');
         switch (errorCode) {
           case 'auth/invalid-email':
             feedback.innerHTML = 'Email inválido';
