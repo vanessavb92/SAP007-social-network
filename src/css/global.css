@@ -130,3 +130,7 @@ body {
 #feedback.error{
   color: red;
 }
+
+.img-perfil{
+  clip-path: circle();
+}

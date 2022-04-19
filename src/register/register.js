@@ -37,7 +37,7 @@ export const register = () => {
         Cadastrar
       </button>
       </div>
-      <span class="error-message"></span>
+      <span id="feedback"></span>
       <div class="social-media registerButton">
       <p>Ou cadastre-se com o Google</p>
       <button class="buttonGoogle" type="button" id="buttonGoogle">
@@ -59,6 +59,7 @@ export const register = () => {
   const email = registerCreate.querySelector('.registerEmail');
   const password = registerCreate.querySelector('.registerPassword');
   const googleButton = registerCreate.querySelector('.buttonGoogle');
+  const feedback = registerCreate.querySelector('#feedback');
 
   registerCreate.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -67,6 +68,18 @@ export const register = () => {
         window.location.hash = '#timeline';
       })
       .catch((error) => {
+        const errorCode = error.code;
+        feedback.classList.add('error');
+        switch (errorCode) {
+          case 'auth/invalid-email':
+            feedback.innerHTML = 'Email inválido';
+            break;
+          case 'auth/email-already-exists':
+            feedback.innerHTML = 'Este email já esta em uso';
+            break;
+          default:
+            feedback.innerHTML = 'Não foi possível realizar seu cadastro';
+        }
         const errorMessage = error.message;
         return errorMessage;
       });
@@ -85,23 +98,3 @@ export const register = () => {
   });
   return registerCreate;
 };
-
-/*
-
-   <div class="">
-  <h2 class="subtitle">Cadastrar</h2>
-
-  <input class="inputNames" placeholder="Digite seu nome. Ex:'Laura Silva'" required>
-
-  <input class="inputNames" placeholder="Digite um e-mail" type="email" required>
-
-  <span class="error"></span>
-
-  <input class="inputNames" placeholder="Digite uma senha" minlength="6" type="password" required>
-
-  <button class="button-enter" type="submit">Cadastrar</button>
-
-  <div class="user-register"><a href="#">Já tenho um cadastro</a></div>
-  </div>
-
-*/

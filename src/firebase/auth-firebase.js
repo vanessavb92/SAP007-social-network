@@ -1,10 +1,15 @@
 // eslint-disable-next-line
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,sendPasswordResetEmail,
-  onAuthStateChanged,
+import { getAuth, 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
   signOut,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+  onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js'; // eslint-disable-line
 
-const auth = getAuth();
+export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export function userCreate(email, password) {
@@ -27,16 +32,10 @@ export function userLogin(email, password) {
 
 export const googleLogin = () => signInWithPopup(auth, provider)
   .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.30
-    const user = result.user;
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.email;
-    const credential = GoogleAuthProvider.credentialFromError(error);
+    // const token = credential.accessToken;
+    // const user = result.user;
+    return credential;
   });
 
 export const resetPassword = (email) => sendPasswordResetEmail(auth, email);

@@ -14,14 +14,14 @@ export const reset = () => {
     <form class="campo-form">
     <label for="emailUsuario">Email:</label>
       <div class="reset-input">
-        <input type="email" id="email" class="reset-input-layout inputNames" placeholder="Digite  o seu email" required>
+        <input type="email" id="email" class="reset-input-layout inputNames" placeholder="Digite  o seu email" autocomplet required>
       </div>
       <div id="botao-recuperar">
       <div class="container-btn">
-        <button id="btn-reset" class="button-reset button">Enviar</button>
+        <button id="btn-reset" class="button-reset button" type="submit">Enviar</button>
       </div>
       </form>
-      <p id="feedback"></p>
+      <span id="feedback"></span>
     </section>
     `;
 
@@ -52,7 +52,7 @@ export const reset = () => {
             feedback.innerHTML = 'Email inválido';
             break;
           case 'auth/user-not-found':
-            feedback.innerHTML = 'Não será possível recuperar sua senha.';
+            feedback.innerHTML = 'Usuário não encontrado.';
             break;
           default:
             feedback.innerHTML = 'Não será possível recuperar sua senha.';
