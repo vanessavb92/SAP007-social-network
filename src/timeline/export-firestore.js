@@ -5,7 +5,7 @@ import {
   getDocs,
   orderBy,
   query,
-  doc,
+  // doc,
   // deleteDoc,
 } from '../firebase/firestore.js';
 
@@ -38,7 +38,3 @@ export const getPosts = async () => {
 
   return arrPosts;
 };
-
-export function deletePosts(item) {
-  return deleteDoc(doc(db, 'posts', item));
-}
