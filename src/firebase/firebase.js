@@ -1,3 +1,4 @@
+// CONFIGURAÇÃO INICIAL FIREBASE
 // eslint-disable-next-line
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 

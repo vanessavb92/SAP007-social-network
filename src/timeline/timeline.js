@@ -1,22 +1,19 @@
-import { addPosts, getPosts } from './export-firestore.js';
+import '../firebase/firebase.js';
 import { auth, userLogout } from '../firebase/auth-firebase.js';
-import { gettingPosts } from './post-template.js';
+import { templatePostFeed } from './template-all-posts.js';
+import { addPosts, orderPosts } from '../firebase/firestore.js';
 
+// TIMELINE - TEXTAREA PARA O USUARIO LOGADO ESCREVER E 2 BOTÕES (SAIR E POSTAR)
 export const timeline = () => {
   const feedCreate = document.createElement('div');
   const templateFeed = `
       <main class="home-container">
 
-      <div class="container-perfil">
-      <img src="./img/perfil.png" class="img-perfil"> 
-      <h2>João Carlos</h2>
-      </div>
-
       <button id="button-getout" class="button">Sair</button>
 
-      <input id="post-text" class="message-typing" placeholder="Compartilhe sua experiência com filmes e séries aqui"></input>
+      <textarea id="post-text" class="message-typing" maxlength='300' rows='10'placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
 
-      <button id="btn-post" class="button-post button">Publicar</button>
+      <button  type='submit' id="btn-post" class="button-post button">Publicar</button>
     
       <div class="posts-container">
         <section id="new-post-user" class="all-post"></section>
@@ -33,12 +30,16 @@ export const timeline = () => {
   const buttonPost = feedCreate.querySelector('.button-post');
   const feed = feedCreate.querySelector('#new-post-user');
 
+  // pegar o click para printar o post na tela
   buttonPost.addEventListener('click', async (e) => {
     e.preventDefault();
+    // eslint-disable-next-line max-len
+    /*  addPosts veio das config firestore (addDoc), pega a menssagem do usuário (recebe parâmetro de message, userEmail, ID do post) */
     addPosts(
       message.value,
       auth.currentUser.email,
     ).then((id) => {
+      // FUNÇÃO PRONTA DE DATE
       const date = new Date().toLocaleString('pt-br');
       const item = {
         userEmail: auth.currentUser.email,
@@ -46,21 +47,22 @@ export const timeline = () => {
         date,
         id,
       };
-      feed.prepend(gettingPosts(item));
+      feed.prepend(templatePostFeed(item));
       message.value = '';
     });
   });
 
-  const sectionPost = feedCreate.querySelector('#all-post');
+  const sectionPost = feedCreate.querySelector('#all-post'); // section guardar todos os posts
 
   const showAllPosts = async () => {
-    const allPosts = await getPosts();
-    allPosts.forEach((item) => {
-      const postElement = gettingPosts(item);
-      sectionPost.prepend(postElement);
+    // mostrar posts na tela (do banco)
+    const allPosts = await orderPosts();
+    allPosts.forEach((item) => { // passando pelos elementos do posts
+      const postElement = templatePostFeed(item);
+      sectionPost.prepend(postElement);// incluindo um filho na lista
     });
   };
-
+  // função para sair
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     userLogout().then(() => {
