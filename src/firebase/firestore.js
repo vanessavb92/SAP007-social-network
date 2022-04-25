@@ -5,7 +5,8 @@ import {
   getDocs,
   orderBy,
   query,
-  // doc,
+  doc,
+  updateDoc,
   // deleteDoc,
   // eslint-disable-next-line
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
@@ -43,3 +44,11 @@ export const orderPosts = async () => {
 
   return arrPosts;
 };
+
+export function editPosts(itemId, message) {
+  const editPost = doc(db, 'posts', itemId);
+  console.log(editPost, 'editpost');
+  return updateDoc(editPost, {
+    message,
+  });
+}

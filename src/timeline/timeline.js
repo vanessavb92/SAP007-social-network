@@ -2,7 +2,6 @@ import '../firebase/firebase.js';
 import { auth, userLogout } from '../firebase/auth-firebase.js';
 import { templatePostFeed } from './template-all-posts.js';
 import { addPosts, orderPosts } from '../firebase/firestore.js';
-
 // TIMELINE - TEXTAREA PARA O USUARIO LOGADO ESCREVER E 2 BOTÕES (SAIR E POSTAR)
 export const timeline = () => {
   const feedCreate = document.createElement('div');
@@ -26,10 +25,18 @@ export const timeline = () => {
   feedCreate.innerHTML = templateFeed;
 
   const logout = feedCreate.querySelector('#button-getout');
-  const message = feedCreate.querySelector('.message-typing');
+  const message = feedCreate.querySelector('#post-text');
   const buttonPost = feedCreate.querySelector('.button-post');
   const feed = feedCreate.querySelector('#new-post-user');
 
+  /* buttonPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    message.value;
+    if (message == null && value == null) {
+      alert('NÃO');
+    }
+  });
+   */
   // pegar o click para printar o post na tela
   buttonPost.addEventListener('click', async (e) => {
     e.preventDefault();
