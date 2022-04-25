@@ -8,11 +8,16 @@ export const timeline = () => {
   const templateFeed = `
       <main class="home-container">
 
-      <button id="button-getout" class="button">Sair</button>
+      <div class="getout-container"><button id="button-getout" class="button btn-getout">Sair</button>
+      </div>
 
-      <textarea id="post-text" class="message-typing" maxlength='300' rows='10'placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
+      <div class="text-container">
+      <textarea id="post-text" class="message-typing" maxlength='300' placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
+      </div>
 
+      <div class="post-container getout-container">
       <button  type='submit' id="btn-post" class="button-post button">Publicar</button>
+      </div>
     
       <div class="posts-container">
         <section id="new-post-user" class="all-post"></section>

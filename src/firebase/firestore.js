@@ -47,7 +47,6 @@ export const orderPosts = async () => {
 
 export function editPosts(itemId, message) {
   const editPost = doc(db, 'posts', itemId);
-  console.log(editPost, 'editpost');
   return updateDoc(editPost, {
     message,
   });

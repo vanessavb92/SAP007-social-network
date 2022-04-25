@@ -8,21 +8,22 @@ export function templatePostFeed(item) {
 
   const postCreate = `
     <div class="post-div">
-      <div class="items-organization">
-        <img src="./img/perfil.png"/>
-          <p>${item.userEmail}</p>
-          ${isPostOwner ? `
-          <div>
-          <button id="modal-btn-edit"><img src="./img/icon-lapis.png">Editar</button>
-          <button id="modal-btn-delete"><img src="./img/icon-lixo.png">Excluir</button>
-          </div>` : ''}
+      <div>
+      ${isPostOwner ? `
+      <div class="icons-container">
+      <button class="modal-buttons" id="modal-btn-edit"><img class="icon-img" src="./img/icon-lapis.png">Editar</button>
+      <button class="modal-buttons"  id="modal-btn-delete"><img class="icon-img" src="./img/icon-lixo.png">Excluir</button>
+      </div>` : ''}
+      <div class="user-info">
+        <img class="user-img icon-img" src="./img/perfil.png"/>
+          <p class="user-email">${item.userEmail}</p>
           </div>
         <div class="items-organization">
           <p>${item.date}</p>
         </div>
-          <p>${item.message}</p>
+          <div class="message-feed">${item.message}</div>
             <div class="like-container">
-            <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/>
+            <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/> 2
             </button>
             </div>
     </div>`;
@@ -30,9 +31,12 @@ export function templatePostFeed(item) {
   container.innerHTML = postCreate;
 
   if (isPostOwner) {
-    const editPost = container.querySelector('#modal-btn-edit');
+    const btnEditPost = container.querySelector('#modal-btn-edit');
 
-    editPost.addEventListener('click', () => container.appendChild(showEdit(item)));
+    btnEditPost.addEventListener('click', (e) => {
+      e.preventDefault();
+      container.appendChild(showEdit(item, container));
+    });
   }
 
   return container;

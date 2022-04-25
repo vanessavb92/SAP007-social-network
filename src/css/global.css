@@ -130,16 +130,3 @@ body {
 #feedback.error{
   color: red;
 }
-
-.img-perfil{
-  clip-path: circle();
-}
-
-.ball-organization{
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0 16px;
-
-}

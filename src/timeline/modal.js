@@ -1,4 +1,6 @@
-export function showEdit(item) {
+import { editPosts } from '../firebase/firestore.js';
+
+export function showEdit(item, container) {
   const modalContainer = document.createElement('div');
 
   const templateEdit = `
@@ -15,11 +17,16 @@ export function showEdit(item) {
   const modal = modalContainer.querySelector('.modal-container');
   const btnSave = modalContainer.querySelector('#btn-save');
   const btnCancel = modalContainer.querySelector('.btn-cancel');
+  const message = modalContainer.querySelector('#post-text');
 
   btnSave.addEventListener('click', () => {
-    modal.classList.add('close-modal');
-  });
+    editPosts(item.id, message.value);
+    const newMessage = container.querySelector('#post-text');
 
+    newMessage.innerHTML = message.value;
+
+    modalContainer.remove();
+  });
   btnCancel.addEventListener('click', () => {
     modal.classList.add('close-modal');
   });
