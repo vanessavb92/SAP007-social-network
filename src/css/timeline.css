@@ -96,8 +96,11 @@
   background: transparent;
   border: none;
   align-items: center;
+  margin-bottom: 1em;
 }
 
 .like-icon {
   width: 40%;
+  cursor: pointer;
+  user-select: none;
 }

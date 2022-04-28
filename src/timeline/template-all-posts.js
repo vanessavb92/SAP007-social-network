@@ -25,13 +25,17 @@ export function templatePostFeed(item) {
         </div>
           <div class="message-feed">${item.message}</div>
             <div class="like-container">
-            <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/> <p id="num-likes" class="num-likes">${item.like.length}</p>
+            <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/><p id="num-likes" class="num-likes">${item.like.length}</p>
             </button>
             </div>
     </div>`;
 
   container.innerHTML = postCreate;
 
+  const buttonLike = container.querySelector('#button-like');
+  const countLikes = container.querySelector('#num-likes');
+  /* const likeImg = container.querySelector('.like-icon');
+ */
   if (isPostOwner) {
     const btnEditPost = container.querySelector('#modal-btn-edit');
 
@@ -47,9 +51,6 @@ export function templatePostFeed(item) {
       container.appendChild(modalDeletePost(item, container));
     });
   }
-
-  const buttonLike = container.querySelector('#button-like');
-  const countLikes = container.querySelector('#num-likes');
 
   buttonLike.addEventListener('click', () => {
     const postLike = item.like;

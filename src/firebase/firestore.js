@@ -48,6 +48,7 @@ export const orderPosts = async () => {
   return arrPosts;
 };
 
+// FUNÇÃO DE EDITAR (FIRESTORE)
 export function editPosts(itemId, message) {
   const editPost = doc(db, 'posts', itemId);
   return updateDoc(editPost, {
@@ -55,10 +56,12 @@ export function editPosts(itemId, message) {
   });
 }
 
+// FUNÇÃO DE DELETAR (FIRESTORE)
 export function deletePosts(itemId) {
   return deleteDoc(doc(db, 'posts', itemId));
 }
 
+// FUNÇÃO DE LIKE (FIRESTORE) - ARRAYUNION (https://cloud.google.com/firestore/docs/manage-data/add-data?hl=pt-br)
 export async function like(itemId, userEmail) {
   try {
     const postId = doc(db, 'posts', itemId);
@@ -70,6 +73,7 @@ export async function like(itemId, userEmail) {
   }
 }
 
+// FUNÇÃO DE DESLIKE (FIRESTORE) - ARRAYREMOVE
 export async function dislike(itemId, userEmail) {
   try {
     const postId = doc(db, 'posts', itemId);

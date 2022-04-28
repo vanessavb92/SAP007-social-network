@@ -5,7 +5,7 @@
   --brown: #1f171a;
 }
 
-.modal {
+.modal-container {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -30,17 +30,6 @@
   text-align: center;
 }
 
-@keyframes modalOpen {
-  from {
-    top: 0px;
-    width: 30%;
-  }
-  to {
-    top: 200px;
-    width: 70%;
-  }
-}
-
 .modal-delete-container {
   display: flex;
   flex-direction: column;
@@ -59,4 +48,8 @@
 .button-confirm-delete {
   background: var(--brown);
   padding: 4px 7px;
+}
+
+.btn-cancel{
+  color: var(--white);
 }

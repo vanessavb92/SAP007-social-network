@@ -11,6 +11,8 @@ export const timeline = () => {
       <div class="getout-container"><button id="button-getout" class="button btn-getout">Sair</button>
       </div>
 
+      <span id="feedback"></span>
+
       <div class="text-container">
       <textarea id="post-text" class="message-typing" maxlength='300' placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
       </div>
@@ -33,39 +35,8 @@ export const timeline = () => {
   const message = feedCreate.querySelector('#post-text');
   const buttonPost = feedCreate.querySelector('.button-post');
   const feed = feedCreate.querySelector('#new-post-user');
-
-  /* buttonPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    message.value;
-    if (message == null && value == null) {
-      alert('NÃO');
-    }
-  });
-   */
-  // pegar o click para printar o post na tela
-  buttonPost.addEventListener('click', async (e) => {
-    e.preventDefault();
-    // eslint-disable-next-line max-len
-    /*  addPosts veio das config firestore (addDoc), pega a menssagem do usuário (recebe parâmetro de message, userEmail, ID do post) */
-    addPosts(
-      message.value,
-      auth.currentUser.email,
-    ).then((id) => {
-      // FUNÇÃO PRONTA DE DATE
-      const date = new Date().toLocaleString('pt-br');
-      const item = {
-        userEmail: auth.currentUser.email,
-        message: message.value,
-        date,
-        id,
-        like: [],
-      };
-      feed.prepend(templatePostFeed(item));
-      message.value = '';
-    });
-  });
-
-  const sectionPost = feedCreate.querySelector('#all-post'); // section guardar todos os posts
+  const feedback = feedCreate.querySelector('#feedback');
+  const sectionPost = feedCreate.querySelector('#all-post');
 
   const showAllPosts = async () => {
     // mostrar posts na tela (do banco)
@@ -75,6 +46,30 @@ export const timeline = () => {
       sectionPost.prepend(postElement);// incluindo um filho na lista
     });
   };
+
+  buttonPost.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const valueMessage = message.value;
+    if (valueMessage === '' || !valueMessage) {
+      feedback.classList.add('error');
+      feedback.innerHTML = 'Erro! Post vazio. Tente novamente.';
+    } else {
+      addPosts(valueMessage, auth.currentUser.email).then((id) => {
+        const date = new Date().toLocaleString('pt-br');
+        const item = {
+          userEmail: auth.currentUser.email,
+          message: message.value,
+          date,
+          id,
+          like: [],
+        };
+        feed.prepend(templatePostFeed(item));
+        message.value = '';
+        feedback.innerHTML = '';
+      });
+    }
+  });
+
   // função para sair
   logout.addEventListener('click', (e) => {
     e.preventDefault();
