@@ -6,8 +6,10 @@ import {
   orderBy,
   query,
   doc,
+  deleteDoc,
   updateDoc,
-  // deleteDoc,
+  arrayUnion,
+  arrayRemove,
   // eslint-disable-next-line
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
@@ -22,6 +24,7 @@ export async function addPosts(message, userEmail) {
       message,
       userEmail,
       date: new Date().toLocaleString('pt-br'),
+      like: [],
     });
     console.log('Document written with ID: ', docRef.id);
     return docRef.id;
@@ -50,4 +53,30 @@ export function editPosts(itemId, message) {
   return updateDoc(editPost, {
     message,
   });
+}
+
+export function deletePosts(itemId) {
+  return deleteDoc(doc(db, 'posts', itemId));
+}
+
+export async function like(itemId, userEmail) {
+  try {
+    const postId = doc(db, 'posts', itemId);
+    return await updateDoc(postId, {
+      likes: arrayUnion(userEmail),
+    });
+  } catch (e) {
+    return console.log('Não deu certo o like', e);
+  }
+}
+
+export async function dislike(itemId, userEmail) {
+  try {
+    const postId = doc(db, 'posts', itemId);
+    return await updateDoc(postId, {
+      likes: arrayRemove(userEmail),
+    });
+  } catch (e) {
+    return console.log('Não deu certo o like', e);
+  }
 }

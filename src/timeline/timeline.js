@@ -58,6 +58,7 @@ export const timeline = () => {
         message: message.value,
         date,
         id,
+        like: [],
       };
       feed.prepend(templatePostFeed(item));
       message.value = '';

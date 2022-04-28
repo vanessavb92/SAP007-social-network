@@ -1,0 +1,62 @@
+:root {
+  --pink: #da4871;
+  --pink-hover: #f43e89;
+  --white: #f9f9f9;
+  --brown: #1f171a;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--white);
+  margin: 50% auto;
+  padding: 20px;
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  animation: modalOpen 0.2s;
+}
+
+.text-modal {
+  text-align: center;
+}
+
+@keyframes modalOpen {
+  from {
+    top: 0px;
+    width: 30%;
+  }
+  to {
+    top: 200px;
+    width: 70%;
+  }
+}
+
+.modal-delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+  color: var(--brown);
+  border: 2px solid var(--pink);
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px;
+  gap: 20px;
+}
+
+.button-confirm-delete {
+  background: var(--brown);
+  padding: 4px 7px;
+}
