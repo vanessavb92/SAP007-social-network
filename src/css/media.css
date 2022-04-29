@@ -19,3 +19,73 @@
     margin: 0.5em 5em;
   }
 }
+
+@media (min-width: 801px) and (max-width: 1024px) {
+  /* HOME */
+  .home-image {
+    width: 22em;
+    position: absolute;
+    top: 9em;
+    right: 1em;
+  }
+  .text-content {
+    margin: 3em 2em;
+  }
+  .text-participate {
+    justify-content: flex-start;
+    font-size: medium;
+  }
+  .button-container {
+    margin-bottom: 8em;
+    justify-content: flex-start;
+    margin-left: 3em;
+  }
+  .credit {
+    justify-content: center;
+  }
+  /* ------------ LOGIN, REGISTER - Falta depois do 1024px --------------*/
+  .inputNames{
+    margin: 0.5em 10%;
+  }
+  .login-container{
+    justify-content: center;
+    margin: 1em auto 3em;
+  }
+  .textForgot{
+    margin: 1em 5% auto;
+  }
+}
+@media (min-width: 900px) and (max-width: 1024px) {
+  .text-content {
+    font-size: larger;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .home-buttons {
+    justify-content: flex-start;
+  }
+  .login{
+    margin: auto 3em;
+  }
+  .text-content {
+    margin: 2em 3em;
+    font-size: large;
+  }
+  .text-participate{
+    justify-content: flex-start;
+  }
+  .button-container{
+    justify-content: flex-start;
+    margin-left: 3em;
+    margin-bottom: 6em;
+  }
+  .home-image{
+    width: 25em;
+    position: absolute;
+    top: 4em;
+    right: 2em;
+  }
+  .credit{
+    justify-content: center;
+  }
+}

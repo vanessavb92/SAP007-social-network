@@ -24,12 +24,10 @@ export async function addPosts(message, userEmail) {
       message,
       userEmail,
       date: new Date().toLocaleString('pt-br'),
-      like: [],
+      likes: [],
     });
-    console.log('Document written with ID: ', docRef.id);
     return docRef.id;
   } catch (e) {
-    console.error('Error adding document: ', e);
     return null;
   }
 }

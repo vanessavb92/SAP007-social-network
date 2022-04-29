@@ -14,11 +14,11 @@ export const timeline = () => {
       <span id="feedback"></span>
 
       <div class="text-container">
-      <textarea id="post-text" class="message-typing" maxlength='300' placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
+      <textarea id="message" class="message-typing" maxlength='300' placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
       </div>
 
       <div class="post-container getout-container">
-      <button  type='submit' id="btn-post" class="button-post button">Publicar</button>
+      <button id="buttonSubmit" class="button-submit-feed button">Publicar</button>
       </div>
     
       <div class="posts-container">
@@ -32,8 +32,8 @@ export const timeline = () => {
   feedCreate.innerHTML = templateFeed;
 
   const logout = feedCreate.querySelector('#button-getout');
-  const message = feedCreate.querySelector('#post-text');
-  const buttonPost = feedCreate.querySelector('.button-post');
+  const message = feedCreate.querySelector('#message');
+  const buttonPost = feedCreate.querySelector('#buttonSubmit');
   const feed = feedCreate.querySelector('#new-post-user');
   const feedback = feedCreate.querySelector('#feedback');
   const sectionPost = feedCreate.querySelector('#all-post');
@@ -61,7 +61,7 @@ export const timeline = () => {
           message: message.value,
           date,
           id,
-          like: [],
+          likes: [],
         };
         feed.prepend(templatePostFeed(item));
         message.value = '';

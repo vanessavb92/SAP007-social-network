@@ -3,14 +3,14 @@ import { editPosts, deletePosts } from '../firebase/firestore.js';
 export function modalEditPost(item, postContainer) {
   const modalContainer = document.createElement('div');
   const template = `
-  <div id=modal-container class="modal-container">
-    <div id=modalContent class="modal-content">
+  <div id="modal-container" class="modal-container">
+    <div id="modalContent" class="modal-content">
       <div class="message-typing-container">
         <textarea name="textarea" maxlength='300' id="message" class="message message-typing" placeholder="Compartilhe sua experiência aqui">${item.message}</textarea>
       </div>
       <div class="button-submit-container">
         <button id="buttonSubmit" class="button-submit-feed button">Salvar</button>
-<button  type='submit' id="btn-cancel" class="btn-cancel button-confirm-delete button">Cancelar</button>
+<button id="btn-cancel" class="btn-cancel button-confirm-delete button">Cancelar</button>
 
       </div>
     </div>
@@ -19,16 +19,16 @@ export function modalEditPost(item, postContainer) {
 
   modalContainer.innerHTML = template;
 
-  const modal = modalContainer.querySelector('#modal');
-  const savePost = modalContainer.querySelector('#buttonSubmit');
+  const modal = modalContainer.querySelector('#modal-container');
+  const publishPost = modalContainer.querySelector('#buttonSubmit');
   const message = modalContainer.querySelector('#message');
   const buttonNo = modalContainer.querySelector('#btn-cancel');
 
-  savePost.addEventListener('click', () => {
+  publishPost.addEventListener('click', () => {
     editPosts(item.id, message.value);
     const newMessage = postContainer.querySelector('#message');
-    modalContainer.remove();
     newMessage.innerHTML = message.value;
+    modalContainer.remove();
   });
 
   buttonNo.addEventListener('click', () => {

@@ -1,5 +1,5 @@
 import { auth } from '../firebase/auth-firebase.js';
-import { like, dislike } from '../firebase/firestore.js';
+/* import { like, dislike } from '../firebase/firestore.js'; */
 import { modalDeletePost, modalEditPost } from './modal.js';
 
 // TEMPLATE DOS POSTS (NO FEED/ DEPOIS DE POSTADO)
@@ -23,7 +23,7 @@ export function templatePostFeed(item) {
         <div class="items-organization">
           <p>${item.date}</p>
         </div>
-          <div class="message-feed">${item.message}</div>
+          <p class="message-feed">${item.message}</p>
             <div class="like-container">
             <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/><p id="num-likes" class="num-likes">${item.like.length}</p>
             </button>
@@ -32,27 +32,28 @@ export function templatePostFeed(item) {
 
   container.innerHTML = postCreate;
 
+  /*
   const buttonLike = container.querySelector('#button-like');
   const countLikes = container.querySelector('#num-likes');
-  /* const likeImg = container.querySelector('.like-icon');
+  const likeImg = container.querySelector('.like-icon');
  */
   if (isPostOwner) {
-    const btnEditPost = container.querySelector('#modal-btn-edit');
-
-    btnEditPost.addEventListener('click', (e) => {
-      e.preventDefault();
-      container.appendChild(modalEditPost(item, container));
-    });
-
     const deletePost = container.querySelector('#modal-btn-delete');
 
     deletePost.addEventListener('click', (e) => {
       e.preventDefault();
       container.appendChild(modalDeletePost(item, container));
     });
+
+    const btnEditPost = container.querySelector('#modal-btn-edit');
+
+    btnEditPost.addEventListener('click', (e) => {
+      e.preventDefault();
+      container.appendChild(modalEditPost(item, container));
+    });
   }
 
-  buttonLike.addEventListener('click', () => {
+  /* buttonLike.addEventListener('click', () => {
     const postLike = item.like;
     if (!postLike.includes(auth.currentUser.email)) {
       like(item.id, auth.currentUser.email).then(() => {
@@ -66,8 +67,6 @@ export function templatePostFeed(item) {
         const addLikeNum = Number(countLikes.innerHTML) - 1;
         countLikes.innerHTML = addLikeNum;
       });
-    }
-  });
-
+    } */
   return container;
 }

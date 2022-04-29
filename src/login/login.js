@@ -22,7 +22,7 @@ export const login = () => {
         placeholder="Digite uma senha"
         minlength="6" required
       />
-      <div class="button-container  serão">
+      <div class="button-container login-container">
       <button id="loginEnter" class="button loginEnter" type="submit" role="link">
         Entrar
       </button>

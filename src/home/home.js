@@ -3,7 +3,7 @@ export const home = () => {
   const templateHome = `
     <main class="home-container">
       <section class="home-buttons nav-menu">
-        <a href="#login" class="button">Entrar</a>
+        <a href="#login" class="button login">Entrar</a>
         <a href="#register" class="button">Cadastrar</a>
       </section>
   
