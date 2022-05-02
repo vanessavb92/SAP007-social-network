@@ -1,16 +1,17 @@
+![Redes Sociais](/src/img-readme/logo-mirame.png)
 ## 1. Introdução
+
+Mirame é o terceiro projeto do bootcamp da Laboratoria. Uma rede social para apaixonados por filmes e séries, um lugar para compartilhar resenhas/reviews, dicas e comentar sobre os últimos lançamentos.
+
 O objetivo desse projeto era desenvolver um SPA (Single Page Application - Aplicação de Página Única), que permita visualizar, postar e interagir (dados). A partir de histórias de usuários a rede deve fornecer funcionalidades que estejam de acordo com a necessidade.
 
 ## 2. Resumo do projeto
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
-invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
-viver sem elas.
+Há redes sociais de todo tipo para todos os tipos de interesse, pensando nisso criamos o Mirame uma rede social para todos os apaixonados por filmes e séries, uma comunidade feita para compartilhar resenhas/reviews, dicas e comentar sobre os últimos lançamentos. O principal objetivo é promover comunicação e interações entre os usuários. Utilizando as experiências de outros usuários para ajudar você a escolher o que assistir a seguir. 
 
-![Redes Sociais](thumb.png)
+Você pode acessar a aplicação clicando <a href="https://juliabb.github.io/SAP007-social-network/">AQUI</a>
 
-
-Há redes sociais de todo tipo para todos os tipos de interesse, pensando nisso criamos o Mírame uma rede social para todos os apaixonados por filmes e séries, uma comunidade feita para compartilhar resenhas/reviews, dicas e comentar sobre os últimos lançamentos. O principal objetivo é promover comunicação e interações entre os usuários. Utilizando as experiências de outros usuários para ajudar você a escolher o que assistir a seguir. 
+![Redes Sociais](./src/img-readme/Home%20-%20Mobile.png)
 
 ## 3. Pesquisa
 Realizamos pesquisas com usuários em potencial e esses foram os resultados.
@@ -64,94 +65,9 @@ O protótipo foi feito utilizando o Figma, você pode acessa-lo clicando <a href
 ### Página de posts
 ![Protótipo 03](src/img-readme/Home%20-%20Posts.png)
 
-## 7. Objetivos de aprendizagem
-
-Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projeto. Pense nisso para decidir sua estratégia de trabalho.
-
-### HTML
-[ ] Uso de HTML semântico
-
-### CSS
- [ ] Uso de seletores de CSS
-
- [ ] Empregar o modelo de caixa (box model): borda, margem, preenchimento
-
- [ ] Uso de flexbox en CSS
-
- [ ] Uso de CSS Grid Layout
-### Web APIs
- [ ] Uso de seletores de DOM
-
- [ ] Gerenciamento de eventos de DOM
-
- [ ] Manipulação dinâmica de DOM
-
- [ ] Routing (History API, evento hashchange, window.location)
-
-### JavaScript
- [ ] Manipular arrays (filter, map, sort, reduce)
-
- [ ] Manipular objects (key | value)
-
- [ ] Diferenciar entre tipos de dados primitivos e não primitivos
-
- [ ] Variáveis (declaração, atribuição, escopo)
-
- [ ] Uso de condicionais (if-else, switch, operador ternário)
-
- [ ] Uso de laços (for, for..of, while)
-
- [ ] Uso de funções (parâmetros, argumentos, valor de retorno)
-
- [ ] Testes unitários
-
- [ ] Testes assíncronos
-
- [ ] Mocking
-
- [ ] Uso ES modules
-
- [ ] Uso de linter (ESLINT)
-
- [ ] Uso de identificadores descritivos (Nomenclatura | Semântica)
-
- [ ] Diferença entre expression e statements
-
- [ ] Uso de callbacks
-
- [ ] Promise
-### Git e GitHub
- [ ] Git: Instalação e configuração
-
- [ ] Git: Controle de versão com git (init, clone, add, commit, status, push, pull, remote)
-
- [ ] Git: Integração de mudanças entre ramos (branch, checkout, fetch, merge, reset, rebase, tag)
-
- [ ] GitHub: Criação de contas e repositórios, configuração de chave SSH
-
- [ ] GitHub: Implantação com GitHub Pages
-
- [ ] GitHub: Colaboração pelo Github (branches | forks | pull requests | code review | tags)
-
- [ ] GitHub: Organização pelo Github (projects | issues | labels | milestones | releases)
-
-### user-centricity
- [ ] Desenhar a aplicação pensando e entendendo a usuária
-### product-design
- [ ] Criar protótipos para obter feedback e iterar
-
- [ ] Aplicar os princípios de desenho visual (contraste, alinhamento, hierarquia)
-
-### research
- [ ] Planejar e executar testes de usabilidade
-### Firebase
- [ ] Firebase Auth
-
- [ ] Firestore
-
 <br>
 
- ## 8. Criadoras
+ ## 7. Criadoras
 
 <table>
   <tr>
