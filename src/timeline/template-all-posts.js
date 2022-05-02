@@ -1,5 +1,5 @@
 import { auth } from '../firebase/auth-firebase.js';
-/* import { like, dislike } from '../firebase/firestore.js'; */
+import { like, dislike } from '../firebase/firestore.js';
 import { modalDeletePost, modalEditPost } from './modal.js';
 
 // TEMPLATE DOS POSTS (NO FEED/ DEPOIS DE POSTADO)
@@ -23,23 +23,19 @@ export function templatePostFeed(item) {
         <div class="items-organization">
           <p>${item.date}</p>
         </div>
-          <p class="message-feed">${item.message}</p>
+          <p id="message" class="message-feed">${item.message}</p>
             <div class="like-container">
-            <button id="button-like" class="button-like"><img class="like-icon" src="./img/icon-pipoca-normal.png"/><p id="num-likes" class="num-likes">${item.like.length}</p>
+              <button id="button-like" class="button-like">
+                <img class="like-icon like" src="./img/icon-pipoca-like.svg"/>
+            <p id="num-likes" class="num-likes">${item.likes.length}</p>
             </button>
             </div>
     </div>`;
 
   container.innerHTML = postCreate;
 
-  /*
-  const buttonLike = container.querySelector('#button-like');
-  const countLikes = container.querySelector('#num-likes');
-  const likeImg = container.querySelector('.like-icon');
- */
   if (isPostOwner) {
     const deletePost = container.querySelector('#modal-btn-delete');
-
     deletePost.addEventListener('click', (e) => {
       e.preventDefault();
       container.appendChild(modalDeletePost(item, container));
@@ -53,8 +49,11 @@ export function templatePostFeed(item) {
     });
   }
 
-  /* buttonLike.addEventListener('click', () => {
-    const postLike = item.like;
+  const buttonLike = container.querySelector('#button-like');
+  const countLikes = container.querySelector('#num-likes');
+
+  buttonLike.addEventListener('click', () => {
+    const postLike = item.likes;
     if (!postLike.includes(auth.currentUser.email)) {
       like(item.id, auth.currentUser.email).then(() => {
         postLike.push(auth.currentUser.email);
@@ -67,6 +66,10 @@ export function templatePostFeed(item) {
         const addLikeNum = Number(countLikes.innerHTML) - 1;
         countLikes.innerHTML = addLikeNum;
       });
-    } */
+    }
+  });
   return container;
 }
+
+// eslint-disable-next-line
+    // SE NÃO TIVER O LIKE NO BANCO, ELE ADICIONA (PUSH) O USER EMAIL E ADICIONA NA TELA +1 - DISLIKE É QUASE O MESMO SÓ QUE ELE RETIRA (SPLICE E -1)

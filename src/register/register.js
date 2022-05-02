@@ -2,66 +2,73 @@ import '../firebase/firebase.js';
 import { userCreate, googleLogin } from '../firebase/auth-firebase.js';
 
 export const register = () => {
-  const registerCreate = document.createElement('div');
-  registerCreate.setAttribute('class', 'container');
+  const registerContainer = document.createElement('div');
   const templateRegister = `
-  <main class="home-container registerContainer">
-    <h2 class="subtitle">Cadastrar</h2>
-    <form id="registerForm" class="registerForm">
-    <input
-    class="inputNames"
-    type="text"
-    id="registerName"
-    placeholder="Digite seu nome. Ex:'Laura Silva' " autocomplet
-    required
-  />
-    <input
-      class="registerEmail inputNames"
-      type="text"
-      id="registerEmail"
-      type="email"
-      placeholder="Digite um e-mail" autocomplet
-      required
-    />
-    <input
-    class="registerPassword inputNames"
-    type="password"
-    id="registerPassword"
-    minlength="6" type="password"
-    placeholder="Digite uma senha"
-    required
-  />
-  
-  <div class="button-container login-container">
-      <button id="registerEnter" class="button registerButton loginEnter" type="submit">
-        Cadastrar
-      </button>
+  <section class="header-home">
+      <h2 class="subtitle">Cadastrar</h2>
+      <form>
+        <input
+          class="input-names"
+          type="text"
+          placeholder="Digite seu nome Ex:Laura "
+          autocomplet
+          required
+        />
+        <input
+          class="register-email input-names"
+          type="text"
+          id="register-email"
+          type="email"
+          placeholder="Digite seu e-mail"
+          autocomplet
+          required
+        />
+        <input
+          class="register-password input-names"
+          type="password"
+          id="register-password"
+          minlength="6"
+          type="password"
+          placeholder="Crie uma senha"
+          required
+        />
+
+        <div class="home-container login-container">
+          <button
+            id="register-enter"
+            class="button register-enter login-enter"
+            type="submit"
+          >
+            Cadastrar
+          </button>
+        </div>
+        <span class="feedback"></span>
+        <div class="social-media register-enter">
+          <p>Ou cadastre-se com o Google</p>
+          <button class="button-google" type="button" id="button-google">
+            <img
+              class="google-img"
+              src="img/icone-google.png"
+              alt="Imagen logo de Google"
+            />
+          </button>
+        </div>
+      </form>
+      <div class="social-media"></div>
+      <div class="back-container">
+        <a href="#home" class="back-home">Voltar a tela inicial</a>
       </div>
-      <span id="feedback"></span>
-      <div class="social-media registerButton">
-      <p>Ou cadastre-se com o Google</p>
-      <button class="buttonGoogle" type="button" id="buttonGoogle">
-      <img class="buttonGoogleImg" src="img/icone-google.png" alt="Imagen logo de Google" />
-      </button>
-      </div>
-    </form>
-    <div class="social-media">
-    </div>
-    <div class="backContainer">
-    <a href="#home" class="backHome">Voltar a tela inicial</a>
-    </div>
-  </main>
- 
+    </section>
     `;
 
-  registerCreate.innerHTML = templateRegister;
+  registerContainer.innerHTML = templateRegister;
 
-  const email = registerCreate.querySelector('.registerEmail');
-  const password = registerCreate.querySelector('.registerPassword');
-  const googleButton = registerCreate.querySelector('.buttonGoogle');
-  const feedback = registerCreate.querySelector('#feedback');
+  const email = registerContainer.querySelector('.register-email');
+  const password = registerContainer.querySelector('.register-password');
+  const googleButton = registerContainer.querySelector('.button-google');
+  const feedback = registerContainer.querySelector('.feedback');
 
-  registerCreate.addEventListener('submit', (e) => {
+  registerContainer.addEventListener('submit', (e) => {
     e.preventDefault();
     userCreate(email.value, password.value)
       .then(() => {
@@ -96,5 +103,5 @@ export const register = () => {
         return errorMessage;
       });
   });
-  return registerCreate;
+  return registerContainer;
 };

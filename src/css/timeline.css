@@ -11,7 +11,7 @@
   margin-right: 5%;
 }
 
-.message-typing {
+.text-writing {
   resize: none;
   width: 70%;
   height: 10em;
@@ -97,6 +97,7 @@
   border: none;
   align-items: center;
   margin-bottom: 1em;
+  justify-content: center;
 }
 
 .like-icon {

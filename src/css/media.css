@@ -14,7 +14,7 @@
     margin: 2em 3em;
   }
 
-  .inputNames {
+  .input-names {
     padding: 15px 5px;
     margin: 0.5em 5em;
   }
@@ -35,7 +35,7 @@
     justify-content: flex-start;
     font-size: medium;
   }
-  .button-container {
+  .home-container {
     margin-bottom: 8em;
     justify-content: flex-start;
     margin-left: 3em;
@@ -44,14 +44,14 @@
     justify-content: center;
   }
   /* ------------ LOGIN, REGISTER - Falta depois do 1024px --------------*/
-  .inputNames{
+  .input-names{
     margin: 0.5em 10%;
   }
   .login-container{
     justify-content: center;
     margin: 1em auto 3em;
   }
-  .textForgot{
+  .text-forgot{
     margin: 1em 5% auto;
   }
 }
@@ -74,7 +74,7 @@
   .text-participate{
     justify-content: flex-start;
   }
-  .button-container{
+  .home-container{
     justify-content: flex-start;
     margin-left: 3em;
     margin-bottom: 6em;

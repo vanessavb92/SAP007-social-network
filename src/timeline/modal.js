@@ -2,36 +2,49 @@ import { editPosts, deletePosts } from '../firebase/firestore.js';
 
 export function modalEditPost(item, postContainer) {
   const modalContainer = document.createElement('div');
-  const template = `
+  const ModalEdit = `
   <div id="modal-container" class="modal-container">
-    <div id="modalContent" class="modal-content">
-      <div class="message-typing-container">
-        <textarea name="textarea" maxlength='300' id="message" class="message message-typing" placeholder="Compartilhe sua experiência aqui">${item.message}</textarea>
+    <div id="modal-content" class="modal-content">
+    <p class="text-reset edit">Edição de postagem</p>
+      <div>
+        <textarea name="textarea" maxlength='300' id="message" class="message text-writing writing-modal"
+          placeholder="Compartilhe sua experiência aqui">${item.message}</textarea>
       </div>
-      <div class="button-submit-container">
-        <button id="buttonSubmit" class="button-submit-feed button">Salvar</button>
-<button id="btn-cancel" class="btn-cancel button-confirm-delete button">Cancelar</button>
+
+      <span class="feedback"></span>
+
+      <div class="save-container">
+        <button id="save-message" class="button">Salvar</button>
+        <button id="button-cancel" class="button-cancel button">Cancelar</button>
 
       </div>
     </div>
   </div>
     `;
 
-  modalContainer.innerHTML = template;
+  modalContainer.innerHTML = ModalEdit;
 
   const modal = modalContainer.querySelector('#modal-container');
-  const publishPost = modalContainer.querySelector('#buttonSubmit');
+  const saveEdit = modalContainer.querySelector('#save-message');
   const message = modalContainer.querySelector('#message');
-  const buttonNo = modalContainer.querySelector('#btn-cancel');
+  const buttonCancel = modalContainer.querySelector('#button-cancel');
+  const feedback = modalContainer.querySelector('.feedback');
 
-  publishPost.addEventListener('click', () => {
-    editPosts(item.id, message.value);
-    const newMessage = postContainer.querySelector('#message');
-    newMessage.innerHTML = message.value;
-    modalContainer.remove();
+  saveEdit.addEventListener('click', () => {
+    if (message.value === '') {
+      feedback.classList.add('error');
+      feedback.innerHTML = 'Opsss! ocorreu um erro Tente novamente.';
+    } else {
+      editPosts(item.id, message.value).then(() => {
+        const messageEdited = postContainer.querySelector('#message');
+        messageEdited.innerHTML = message.value;
+
+        modalContainer.remove();
+      });
+    }
   });
 
-  buttonNo.addEventListener('click', () => {
+  buttonCancel.addEventListener('click', () => {
     modalContainer.remove();
   });
 
@@ -46,22 +59,25 @@ export function modalEditPost(item, postContainer) {
 export function modalDeletePost(post, postContainer) {
   const modalContainer = document.createElement('div');
 
-  const template = `
-  <div id=modal-container class="modal-container">
-    <div class="modal-content">
-      <div class="modal-delete-container" >
-      <h2 class="text-modal">Apagar postagem?</h2>
-        <p class="text-modal">Você tem certeza que deseja excluir a postagem? Essa ação não poderá ser desfeita.</p>
-        <div>
-          <button id="button-yes" class="button">Sim</button>
-          <button id="button-no" class="button-confirm-delete button">Cancelar</button>
-        </div>
+  const ModalDelete = `
+  <div id="modal-container" class="modal-container">
+  <div class="modal-content">
+    <div class="delete-container">
+      <h2 class="delete-text">Apagar postagem?</h2>
+      <p class="delete-text">
+        Você tem certeza que deseja excluir a postagem? Essa ação não poderá
+        ser desfeita.
+      </p>
+      <div>
+        <button id="button-yes" class="button">Sim</button>
+        <button id="button-no" class="button-cancel button">Não</button>
       </div>
     </div>
   </div>
+</div>
   `;
 
-  modalContainer.innerHTML = template;
+  modalContainer.innerHTML = ModalDelete;
 
   const modal = modalContainer.querySelector('#modal-container');
   const buttonYes = modalContainer.querySelector('#button-yes');

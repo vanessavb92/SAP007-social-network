@@ -46,7 +46,7 @@ export const orderPosts = async () => {
   return arrPosts;
 };
 
-// FUNÇÃO DE EDITAR (FIRESTORE)
+// FUNÇÃO DE EDITAR (UPDATEDOC - FIRESTORE)
 export function editPosts(itemId, message) {
   const editPost = doc(db, 'posts', itemId);
   return updateDoc(editPost, {
@@ -54,12 +54,12 @@ export function editPosts(itemId, message) {
   });
 }
 
-// FUNÇÃO DE DELETAR (FIRESTORE)
+// FUNÇÃO DE DELETAR (DELETEDOC - FIRESTORE)
 export function deletePosts(itemId) {
   return deleteDoc(doc(db, 'posts', itemId));
 }
 
-// FUNÇÃO DE LIKE (FIRESTORE) - ARRAYUNION (https://cloud.google.com/firestore/docs/manage-data/add-data?hl=pt-br)
+// FUNÇÃO DE LIKE (ARRAYUNION - FIRESTORE) (https://cloud.google.com/firestore/docs/manage-data/add-data?hl=pt-br)
 export async function like(itemId, userEmail) {
   try {
     const postId = doc(db, 'posts', itemId);
@@ -67,11 +67,11 @@ export async function like(itemId, userEmail) {
       likes: arrayUnion(userEmail),
     });
   } catch (e) {
-    return console.log('Não deu certo o like', e);
+    return console.log('Erro Like', e);
   }
 }
 
-// FUNÇÃO DE DESLIKE (FIRESTORE) - ARRAYREMOVE
+// FUNÇÃO DE DESLIKE (ARRAYREMOVE - FIRESTORE)
 export async function dislike(itemId, userEmail) {
   try {
     const postId = doc(db, 'posts', itemId);
@@ -79,6 +79,6 @@ export async function dislike(itemId, userEmail) {
       likes: arrayRemove(userEmail),
     });
   } catch (e) {
-    return console.log('Não deu certo o like', e);
+    return console.log('Erro dislike', e);
   }
 }
