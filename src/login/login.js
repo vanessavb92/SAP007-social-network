@@ -2,62 +2,74 @@ import '../firebase/firebase.js';
 import { userLogin, googleLogin } from '../firebase/auth-firebase.js';
 
 export const login = () => {
-  const loginCreate = document.createElement('div');
-  loginCreate.setAttribute('class', 'container');
+  const loginContainer = document.createElement('div');
   const templateLogin = `
-    <main class="home-container">
-    <form id="loginForm" class="loginForm">
-      <h2 class="subtitle">Login</h2>
-      <input
-        class="loginEmail inputNames"
-        type="email"
-        id="loginEmail"
-        placeholder="Digite seu e-mail" autocomplet
-        required
-      />
-      <input
-        class="loginPassword inputNames"
-        type="password"
-        id="loginPassword"
-        placeholder="Digite uma senha"
-        minlength="6" required
-      />
-      <div class="button-container  serão">
-      <button id="loginEnter" class="button loginEnter" type="submit" role="link">
+  <section class="header-home">
+  <form>
+    <h2 class="subtitle">Login</h2>
+    <input
+      class="login-email input-names"
+      type="email"
+      id="login-email"
+      placeholder="Digite seu e-mail"
+      autocomplet
+      required
+    />
+    <input
+      class="login-password input-names"
+      type="password"
+      id="login-password"
+      placeholder="Digite uma senha"
+      minlength="6"
+      required
+    />
+    <div class="home-container login-container">
+      <button
+        id="login-enter"
+        class="button login-enter"
+        type="submit"
+        role="link"
+      >
         Entrar
       </button>
-      </div>
-      <span id="feedback"></span>
-      <div class="text-content">
-      <p class="textForgot">
-      Esqueci a <a class="links" href="#reset">Senha</a>
+    </div>
+    <span class="feedback"></span>
+    <div class="text-content">
+      <p class="text-forgot">
+        Esqueci a <a class="links" href="#reset">Senha</a>
       </p>
       <div class="social-media google-container">
-      <p>Ou entrar com o Google</p>
-      <button class="buttonGoogle" type="button" id="buttonGoogle">
-      <img class="buttonGoogleImg" src="img/icone-google.png" alt="Logo de Google" />
-      </button>
+        <p>Ou entrar com o Google</p>
+        <button class="button-google" type="button" id="button-google">
+          <img
+            class="google-img"
+            src="img/icone-google.png"
+            alt="Logo de Google"
+          />
+        </button>
       </div>
-      </div>
-    </form>
-    <div class="social-media">
-    <p class="textRegister" >Ainda não tem conta? 
-    <a href="#register" class="links">Cadastre-se</a>
+    </div>
+  </form>
+  <div class="social-media">
+    <p class="text-register">
+      Ainda não tem conta?
+      <a href="#register" class="links">Cadastre-se</a>
     </p>
-    </div>
-    <div class="backContainer">
-    <a href="#home" class="backHome">Voltar a tela inicial</a>
-    </div>
-  </main>
+  </div>
+  <div class="back-container">
+    <a href="#home" class="back-home">Voltar a tela inicial</a>
+  </div>
+</section>
   `;
 
-  loginCreate.innerHTML = templateLogin;
+  loginContainer.innerHTML = templateLogin;
 
-  const email = loginCreate.querySelector('.loginEmail');
-  const password = loginCreate.querySelector('.loginPassword');
-  const googleButton = loginCreate.querySelector('.buttonGoogle');
-  const feedback = loginCreate.querySelector('#feedback');
-  loginCreate.addEventListener('submit', (e) => {
+  const email = loginContainer.querySelector('.login-email');
+  const password = loginContainer.querySelector('.login-password');
+  const googleButton = loginContainer.querySelector('.button-google');
+  const feedback = loginContainer.querySelector('.feedback');
+
+  loginContainer.addEventListener('submit', (e) => {
     e.preventDefault();
     if (email.value && password.value) {
       userLogin(email.value, password.value)
@@ -96,5 +108,5 @@ export const login = () => {
       });
   });
 
-  return loginCreate;
+  return loginContainer;
 };

@@ -1,22 +1,26 @@
-import { addPosts, getPosts } from './export-firestore.js';
+import '../firebase/firebase.js';
 import { auth, userLogout } from '../firebase/auth-firebase.js';
-import { gettingPosts } from './post-template.js';
-
+import { addPosts, orderPosts } from '../firebase/firestore.js';
+import { templatePostFeed } from './template-all-posts.js';
+// TIMELINE - TEXTAREA PARA O USUARIO LOGADO ESCREVER E 2 BOTÕES (SAIR E POSTAR)
 export const timeline = () => {
   const feedCreate = document.createElement('div');
   const templateFeed = `
-      <main class="home-container">
+      <main class="header-home">
 
-      <div class="container-perfil">
-      <img src="./img/perfil.png" class="img-perfil"> 
-      <h2>João Carlos</h2>
+      <div class="getout-container">
+      <button id="button-getout" class="button btn-getout">Sair</button>
       </div>
 
-      <button id="button-getout" class="button">Sair</button>
+      <span class="feedback"></span>
 
-      <input id="post-text" class="message-typing" placeholder="Compartilhe sua experiência com filmes e séries aqui"></input>
+      <div class="text-container">
+      <textarea id="message" class="text-writing" maxlength='300' placeholder="Compartilhe sua experiência com filmes e séries aqui"></textarea>
+      </div>
 
-      <button id="btn-post" class="button-post button">Publicar</button>
+      <div class="post-container getout-container">
+      <button id="buttonPost" class="button-submit-feed button">Publicar</button>
+      </div>
     
       <div class="posts-container">
         <section id="new-post-user" class="all-post"></section>
@@ -29,38 +33,46 @@ export const timeline = () => {
   feedCreate.innerHTML = templateFeed;
 
   const logout = feedCreate.querySelector('#button-getout');
-  const message = feedCreate.querySelector('.message-typing');
-  const buttonPost = feedCreate.querySelector('.button-post');
+  const message = feedCreate.querySelector('#message');
+  const buttonPost = feedCreate.querySelector('#buttonPost');
   const feed = feedCreate.querySelector('#new-post-user');
-
-  buttonPost.addEventListener('click', async (e) => {
-    e.preventDefault();
-    addPosts(
-      message.value,
-      auth.currentUser.email,
-    ).then((id) => {
-      const date = new Date().toLocaleString('pt-br');
-      const item = {
-        userEmail: auth.currentUser.email,
-        message: message.value,
-        date,
-        id,
-      };
-      feed.prepend(gettingPosts(item));
-      message.value = '';
-    });
-  });
-
+  const feedback = feedCreate.querySelector('.feedback');
   const sectionPost = feedCreate.querySelector('#all-post');
 
+  buttonPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    const valueMessage = message.value;
+    const messageErro = 'Ops! Não é possivel postar mensagem sem conteudo.';
+    if (valueMessage === '' || !valueMessage) {
+      feedback.classList.add('error');
+      feedback.innerHTML = messageErro;
+    } else {
+      addPosts(valueMessage, auth.currentUser.email).then((id) => {
+        const date = new Date().toLocaleString('pt-br');
+        const item = {
+          userEmail: auth.currentUser.email,
+          message: message.value,
+          date,
+          id,
+          likes: [],
+        };
+        feed.prepend(templatePostFeed(item));
+        message.value = '';
+        feedback.innerHTML = '';
+      });
+    }
+  });
+
   const showAllPosts = async () => {
-    const allPosts = await getPosts();
-    allPosts.forEach((item) => {
-      const postElement = gettingPosts(item);
-      sectionPost.prepend(postElement);
+    // mostrar posts na tela (do banco)
+    const allPosts = await orderPosts();
+    allPosts.forEach((item) => { // passando pelos elementos do posts
+      const postElement = templatePostFeed(item);
+      sectionPost.prepend(postElement);// incluindo um filho na lista
     });
   };
 
+  // função para sair
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     userLogout().then(() => {

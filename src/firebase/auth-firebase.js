@@ -1,3 +1,4 @@
+// FUNÇÕES DE AUTENTICAÇÃO FIREBASE
 // eslint-disable-next-line
 import { getAuth, 
   createUserWithEmailAndPassword,
@@ -12,6 +13,7 @@ import { getAuth,
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
+// FUNÇÃO DE CRIAR NOVO USUÁRIO
 export function userCreate(email, password) {
   return createUserWithEmailAndPassword(auth, email, password).then(
     (userCredential) => {
@@ -21,6 +23,7 @@ export function userCreate(email, password) {
   );
 }
 
+// FUNÇÃO DE LOGIN
 export function userLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password).then(
     (userCredential) => {
@@ -30,6 +33,7 @@ export function userLogin(email, password) {
   );
 }
 
+// FUNÇÃO DE LOGIN COM GOOGLE
 export const googleLogin = () => signInWithPopup(auth, provider)
   .then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -38,16 +42,19 @@ export const googleLogin = () => signInWithPopup(auth, provider)
     return credential;
   });
 
+// FUNÇÃO DE RESETAR SENHA (VIA EMAIL)
 export const resetPassword = (email) => sendPasswordResetEmail(auth, email);
 
+// FUNÇÃO DE VERIFICAR SE ESTÁ LOGADO
 export function loggedIn(cb) {
   onAuthStateChanged(auth, (user) => {
     cb(user != null);
   });
 }
 
+// FUNÇÃO DE SAIR DA CONTA
 export function userLogout() {
   return signOut(auth)
-    .then(() => 'Logout')
+    .then(() => 'Saiu')
     .catch((error) => error);
 }

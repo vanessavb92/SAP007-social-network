@@ -2,47 +2,44 @@ import '../firebase/firebase.js';
 import { resetPassword } from '../firebase/auth-firebase.js';
 
 export const reset = () => {
-  const resetCreate = document.createElement('div');
-  resetCreate.setAttribute('class', 'container');
+  const resetContainer = document.createElement('div');
   const templateReset = `
-  
-        <h2 class="subtitle">Esqueci a senha</h2>
-    <section class="resetSection-background-opacity">
-    <h3 class="text-h3">Uma nova senha será enviada 
-      ao seu email de cadastro</h3><br>
-    </div>
-    <form class="campo-form">
-    <label for="emailUsuario">Email:</label>
-      <div class="reset-input">
-        <input type="email" id="email" class="reset-input-layout inputNames" placeholder="Digite  o seu email" autocomplet required>
+  <section class="header-home">
+    <h2 class="subtitle">Esqueci a senha</h2>
+    <section class="text-content">
+      <p class="text-reset">Uma nova senha será enviada
+        ao seu email de cadastro</p>
       </div>
-      <div id="botao-recuperar">
-      <div class="container-btn">
-        <button id="btn-reset" class="button-reset button" type="submit">Enviar</button>
-      </div>
+      <form>
+        <div class="reset-input">
+          <input type="email" id="email" class="input-names" placeholder="Digite  o seu email" autocomplet required>
+        </div>
+        <div id="botao-recuperar">
+          <div class="container-btn">
+            <button id="reset" class="reset button" type="submit">Enviar</button>
+          </div>
       </form>
-      <span id="feedback"></span>
+      <span class="feedback"></span>
     </section>
+  </section>
     `;
 
-  resetCreate.innerHTML = templateReset;
-  // const registerEmail = resetCreate.querySelector('#btn-recover');
-  const inputEmail = resetCreate.querySelector('#email');
-  // const btnBackRecover = resetCreate.querySelector('#btn-back-recover');
-  const feedback = resetCreate.querySelector('#feedback');
+  resetContainer.innerHTML = templateReset;
+  // const register-email = resetContainer.querySelector('#btn-recover');
+  const inputEmail = resetContainer.querySelector('#email');
+  // const btnBackRecover = resetContainer.querySelector('#btn-back-recover');
+  const feedback = resetContainer.querySelector('.feedback');
 
-  const btnLinkRecover = resetCreate.querySelector('#btn-reset');
-  console.log(btnLinkRecover);
+  const btnLinkRecover = resetContainer.querySelector('#reset');
 
   btnLinkRecover.addEventListener('click', (e) => {
     e.preventDefault();
     const email = inputEmail.value;
-    console.log(email);
     resetPassword(email)
       .then(() => {
         feedback.classList.remove('error');
         feedback.classList.add('send');
-        feedback.innerHTML = 'E-mail para redefinição de senha enviado';
+        feedback.innerHTML = 'E-mail para redefinição de senha enviado! Verifique seu e-mail';
       }).catch((error) => {
         const errorCode = error.code;
         feedback.classList.remove('send');
@@ -52,12 +49,12 @@ export const reset = () => {
             feedback.innerHTML = 'Email inválido';
             break;
           case 'auth/user-not-found':
-            feedback.innerHTML = 'Usuário não encontrado.';
+            feedback.innerHTML = 'Usuário não encontrado';
             break;
           default:
-            feedback.innerHTML = 'Não será possível recuperar sua senha.';
+            feedback.innerHTML = 'Não será possível recuperar sua senha';
         }
       });
   });
-  return resetCreate;
+  return resetContainer;
 };

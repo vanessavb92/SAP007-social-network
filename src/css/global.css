@@ -19,7 +19,7 @@ body {
   color: var(--white);
 }
 
-.nav-menu {
+.nav {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -58,7 +58,7 @@ body {
   margin-bottom: 0.5em;
 }
 
-.inputNames {
+.input-names {
   width: 80%;
   padding: 5px 5px;
   margin: 0.5em 2em;
@@ -69,11 +69,11 @@ body {
   color: var(--white);
 }
 
-.loginEnter{
+.login-enter{
   margin-top: 1em;
 }
 
-.textForgot {
+.text-forgot {
   margin: 1em auto;
 }
 
@@ -81,25 +81,25 @@ body {
   color: var(--pink);
   text-decoration: none;
 }
-.buttonGoogleImg {
+.google-img {
   width: 2em;
   display: flex;
   align-items: center;
 }
 
-.backContainer {
+.back-container {
   display: flex;
   justify-content: center;
   margin-top: 3em;
   margin-bottom: 4em;
 }
 
-.backHome {
+.back-home {
   color: var(--white);
   padding: 20px;
 }
 
-.registerButton > p, .registerButton > button{
+.register-enter > p, .register-enter > button{
   margin-top: 1em;
 }
 
@@ -117,20 +117,20 @@ body {
   margin-top: 1em;
 }
 
-#feedback{
+.text-reset{
+  margin-bottom: 1em;
+}
+
+.feedback{
   display: flex;
   justify-content: center;
   margin-top: 2em;
 }
 
-#feedback.send{
+.feedback.send{
   color: green;
 }
 
-#feedback.error{
+.feedback.error{
   color: red;
-}
-
-.img-perfil{
-  clip-path: circle();
 }
