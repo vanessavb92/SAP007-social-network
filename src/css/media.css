@@ -1,3 +1,22 @@
+@media (min-width: 425px) and (max-width: 768px){
+  .user-info {
+    align-items: center;
+    justify-content: flex-start;
+}
+.user-email {
+  margin-top: 1em;
+}
+.icons-container {
+  padding-top: 1em;
+  padding-right: 1em;
+}
+.items-organization {
+  margin: 1em 5% auto auto;
+}
+.post-div {
+  margin: 1em 3em;
+}
+}
 @media (min-width: 600px) and (max-width: 800px) {
   .nav-logo {
     width: 8em;
@@ -25,7 +44,7 @@
   .home-image {
     width: 22em;
     position: absolute;
-    top: 9em;
+    top: 11em;
     right: 1em;
   }
   .text-content {
@@ -43,7 +62,6 @@
   .credit {
     justify-content: center;
   }
-  /* ------------ LOGIN, REGISTER - Falta depois do 1024px --------------*/
   .input-names{
     margin: 0.5em 10%;
   }
@@ -54,13 +72,14 @@
   .text-forgot{
     margin: 1em 5% auto;
   }
+
 }
 @media (min-width: 900px) and (max-width: 1024px) {
   .text-content {
     font-size: larger;
   }
 }
-@media (min-width: 1025px) and (max-width: 1440px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
   .home-buttons {
     justify-content: flex-start;
   }
@@ -77,7 +96,7 @@
   .home-container{
     justify-content: flex-start;
     margin-left: 3em;
-    margin-bottom: 6em;
+    margin-bottom: 10em;
   }
   .home-image{
     width: 25em;
@@ -88,4 +107,39 @@
   .credit{
     justify-content: center;
   }
+}
+
+@media (min-width: 1601px) and (max-width: 2560px) {
+  .login{
+    padding: 5px 40px;
+  }
+  .text-content {
+    margin: 3em 5em 2em;
+    font-size: large;
+}
+.text-participate {
+  justify-content: flex-start;
+  margin: 2em 70% 0em 0em;
+}
+.home-container {
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+.container-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 24vw;
+}
+.home-image {
+  position: absolute;
+  width: 35em;
+  bottom: 6em;
+  left: 50em;
+}
+.credit{
+  justify-content: center;
+  margin: auto;
+  font-size: large;
+}
 }

@@ -8,7 +8,7 @@ import { getAuth,
   sendPasswordResetEmail,
   signOut,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js'; // eslint-disable-line
+} from './export.js'; // eslint-disable-line
 
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();

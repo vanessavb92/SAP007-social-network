@@ -10,7 +10,7 @@ export const reset = () => {
       <p class="text-reset">Uma nova senha será enviada
         ao seu email de cadastro</p>
       </div>
-      <form>
+      <form id="form-reset">
         <div class="reset-input">
           <input type="email" id="email" class="input-names" placeholder="Digite  o seu email" autocomplet required>
         </div>
@@ -25,11 +25,8 @@ export const reset = () => {
     `;
 
   resetContainer.innerHTML = templateReset;
-  // const register-email = resetContainer.querySelector('#btn-recover');
   const inputEmail = resetContainer.querySelector('#email');
-  // const btnBackRecover = resetContainer.querySelector('#btn-back-recover');
   const feedback = resetContainer.querySelector('.feedback');
-
   const btnLinkRecover = resetContainer.querySelector('#reset');
 
   btnLinkRecover.addEventListener('click', (e) => {

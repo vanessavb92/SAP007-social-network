@@ -6,7 +6,7 @@ export const register = () => {
   const templateRegister = `
   <section class="header-home">
       <h2 class="subtitle">Cadastrar</h2>
-      <form>
+      <form id="form-register">
         <input
           class="input-names"
           type="text"

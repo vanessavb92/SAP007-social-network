@@ -72,18 +72,20 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 5%;
+  font-size: 11px;
 }
 
 .user-email {
-  font-size: 4vw;
+  font-size: 12px;
   margin-top: 1em;
 }
 
 .message-feed {
   display: flex;
   justify-content: center;
-  word-break: break-all;
+  word-break: break-word;
   margin: 1em;
+  font-size: 15px;
 }
 
 .like-container {

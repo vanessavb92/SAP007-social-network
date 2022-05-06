@@ -31,6 +31,5 @@ export const home = () => {
 </article>
     `;
   homeContainer.innerHTML = templateHome;
-  console.log('olá');
   return homeContainer;
 };

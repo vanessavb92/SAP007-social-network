@@ -5,7 +5,7 @@ export const login = () => {
   const loginContainer = document.createElement('div');
   const templateLogin = `
   <section class="header-home">
-  <form>
+  <form id="form-login">
     <h2 class="subtitle">Login</h2>
     <input
       class="login-email input-names"
