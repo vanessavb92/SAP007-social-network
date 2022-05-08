@@ -26,7 +26,7 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-.writing-modal{
+.writing-modal {
   width: 100%;
 }
 
@@ -34,7 +34,7 @@
   text-align: center;
 }
 
-.edit{
+.edit {
   color: var(--brown);
   font-weight: bold;
 }
@@ -53,11 +53,11 @@
   gap: 20px;
 }
 
-.save-container{
+.save-container {
   margin: 1em auto;
 }
 
-.button-cancel{
+.button-cancel {
   color: var(--white);
   background-color: var(--brown);
   padding: 4px 7px;

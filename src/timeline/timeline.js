@@ -64,15 +64,13 @@ export const timeline = () => {
   });
 
   const showAllPosts = async () => {
-    // mostrar posts na tela (do banco)
     const allPosts = await orderPosts();
-    allPosts.forEach((item) => { // passando pelos elementos do posts
+    allPosts.forEach((item) => {
       const postElement = templatePostFeed(item);
-      sectionPost.prepend(postElement);// incluindo um filho na lista
+      sectionPost.prepend(postElement);
     });
   };
 
-  // função para sair
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     userLogout().then(() => {

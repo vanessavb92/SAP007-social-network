@@ -1,4 +1,3 @@
-// CONFIGURAÇÃO INICIAL FIREBASE
 import { initializeApp, getAuth, getFirestore } from './export.js';
 
 const firebaseConfig = {

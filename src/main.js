@@ -37,5 +37,4 @@ const contentChange = () => {
 };
 
 window.addEventListener('hashchange', contentChange);
-
 window.addEventListener('load', contentChange);

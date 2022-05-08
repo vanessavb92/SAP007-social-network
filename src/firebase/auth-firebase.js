@@ -1,6 +1,7 @@
 // FUNÇÕES DE AUTENTICAÇÃO FIREBASE
 // eslint-disable-next-line
-import { getAuth, 
+import {
+  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,

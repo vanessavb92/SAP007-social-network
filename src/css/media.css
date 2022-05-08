@@ -16,7 +16,7 @@
   .post-div {
     margin: 1em 3em;
   }
-  .post-container{
+  .post-container {
     margin-bottom: 1em;
   }
 }
@@ -35,8 +35,6 @@
     padding: 15px 5px;
     margin: 0.5em 5em;
   }
-
-
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
@@ -126,21 +124,20 @@
   }
   .post-container {
     margin-bottom: 3em;
-}
-.input-names {
-  margin: 0.5em 7em;
-}
-.login-container {
-  justify-content: flex-end;
-  margin-right: 7em;
-  margin-top: 1em;
-  margin-bottom: 0;
-}
-.text-forgot {
-  margin-bottom: 1em;
-  margin-left: 5%;
-}
-
+  }
+  .input-names {
+    margin: 0.5em 7em;
+  }
+  .login-container {
+    justify-content: flex-end;
+    margin-right: 7em;
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+  .text-forgot {
+    margin-bottom: 1em;
+    margin-left: 5%;
+  }
 }
 
 @media (min-width: 1601px) and (max-width: 2560px) {
@@ -171,7 +168,7 @@
     bottom: 40%;
     left: 60%;
   }
-  
+
   .credit {
     justify-content: center;
     margin: auto;
@@ -188,23 +185,23 @@
   }
   .items-organization {
     font-size: 12px;
-}
+  }
   div .modal-buttons {
-  width: 20%;
-}
-.icon-img {
-  margin-right: 1em;
-}
-.input-names {
-  padding: 10px 8px;
-  margin: 0.5em 16em;
-}
-.login-container {
-  justify-content: flex-end;
-  margin-right: 13%;
-  margin-top: 2em;
-}
-.text-forgot {
-  margin-left: 9%;
-}
+    width: 20%;
+  }
+  .icon-img {
+    margin-right: 1em;
+  }
+  .input-names {
+    padding: 10px 8px;
+    margin: 0.5em 16em;
+  }
+  .login-container {
+    justify-content: flex-end;
+    margin-right: 13%;
+    margin-top: 2em;
+  }
+  .text-forgot {
+    margin-left: 9%;
+  }
 }
