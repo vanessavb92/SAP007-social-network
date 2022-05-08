@@ -1,21 +1,21 @@
-@media (min-width: 425px) and (max-width: 768px){
+@media (min-width: 425px) and (max-width: 768px) {
   .user-info {
     align-items: center;
     justify-content: flex-start;
-}
-.user-email {
-  margin-top: 1em;
-}
-.icons-container {
-  padding-top: 1em;
-  padding-right: 1em;
-}
-.items-organization {
-  margin: 1em 5% auto auto;
-}
-.post-div {
-  margin: 1em 3em;
-}
+  }
+  .user-email {
+    margin-top: 1em;
+  }
+  .icons-container {
+    padding-top: 1em;
+    padding-right: 1em;
+  }
+  .items-organization {
+    margin: 1em 5% auto auto;
+  }
+  .post-div {
+    margin: 1em 3em;
+  }
 }
 @media (min-width: 600px) and (max-width: 800px) {
   .nav-logo {
@@ -62,84 +62,124 @@
   .credit {
     justify-content: center;
   }
-  .input-names{
+  .input-names {
     margin: 0.5em 10%;
   }
-  .login-container{
+  .login-container {
     justify-content: center;
     margin: 1em auto 3em;
   }
-  .text-forgot{
+  .text-forgot {
     margin: 1em 5% auto;
   }
-
+  section .post-div {
+    margin: 1em 8em;
+  }
+  .post-container {
+    margin-bottom: 3em;
+  }
+  .modal-content {
+    margin: 13% auto;
+  }
 }
 @media (min-width: 900px) and (max-width: 1024px) {
   .text-content {
     font-size: larger;
+  }
+  .post-div {
+    margin: 1em 13em;
   }
 }
 @media (min-width: 1025px) and (max-width: 1600px) {
   .home-buttons {
     justify-content: flex-start;
   }
-  .login{
+  .login {
     margin: auto 3em;
   }
   .text-content {
     margin: 2em 3em;
     font-size: large;
   }
-  .text-participate{
+  .text-participate {
     justify-content: flex-start;
   }
-  .home-container{
+  .home-container {
     justify-content: flex-start;
     margin-left: 3em;
     margin-bottom: 10em;
   }
-  .home-image{
+  .home-image {
     width: 25em;
     position: absolute;
     top: 4em;
     right: 2em;
   }
-  .credit{
+  .credit {
     justify-content: center;
   }
+  .post-div {
+    margin: 1em 12em;
+  }
+  section .post-div {
+    margin: 1em 10em;
+  }
+  .post-container {
+    margin-bottom: 3em;
+}
+
 }
 
 @media (min-width: 1601px) and (max-width: 2560px) {
-  .login{
+  .login {
     padding: 5px 40px;
   }
   .text-content {
     margin: 3em 5em 2em;
     font-size: large;
+  }
+  .text-participate {
+    justify-content: flex-start;
+    margin: 2em 70% 0em 0em;
+  }
+  .home-container {
+    justify-content: flex-start;
+    margin-left: 10%;
+  }
+  .container-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 24vw;
+  }
+  .home-image {
+    position: absolute;
+    width: 35em;
+    bottom: 6em;
+    left: 50em;
+  }
+  .credit {
+    justify-content: center;
+    margin: auto;
+    font-size: large;
+  }
+  section .post-div {
+    margin: 2em 16em;
+  }
+  .user-img {
+    width: 2em;
+  }
+  .user-email {
+    font-size: 16px;
+  }
+  .items-organization {
+    font-size: 12px;
 }
-.text-participate {
-  justify-content: flex-start;
-  margin: 2em 70% 0em 0em;
+  div .modal-buttons {
+  width: 20%;
 }
-.home-container {
-  justify-content: flex-start;
-  margin-left: 10%;
+.icon-img {
+  margin-right: 1em;
 }
-.container-image {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-  margin-bottom: 24vw;
-}
-.home-image {
-  position: absolute;
-  width: 35em;
-  bottom: 6em;
-  left: 50em;
-}
-.credit{
-  justify-content: center;
-  margin: auto;
-  font-size: large;
-}
+
 }

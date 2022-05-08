@@ -2,15 +2,12 @@ import { auth } from '../firebase/auth-firebase.js';
 import { like, dislike } from '../firebase/firestore.js';
 import { modalDeletePost, modalEditPost } from './modal.js';
 
-// TEMPLATE DOS POSTS (NO FEED/ DEPOIS DE POSTADO)
 export function templatePostFeed(item) {
-  // const isPostOwner = verificando se o usuário logado é o mesmo que fez o post
   const isPostOwner = item.userEmail === auth.currentUser.email;
   const container = document.createElement('section');
 
   const postCreate = `
     <div class="post-div">
-      <div>
       ${isPostOwner ? `
       <div class="icons-container">
       <button class="modal-buttons" id="modal-btn-edit"><img class="icon-img" src="./img/icon-lapis.png">Editar</button>
@@ -70,6 +67,3 @@ export function templatePostFeed(item) {
   });
   return container;
 }
-
-// eslint-disable-next-line
-    // SE NÃO TIVER O LIKE NO BANCO, ELE ADICIONA (PUSH) O USER EMAIL E ADICIONA NA TELA +1 - DISLIKE É QUASE O MESMO SÓ QUE ELE RETIRA (SPLICE E -1)

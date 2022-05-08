@@ -3,7 +3,7 @@
  */
 
 import {
-  userCreate, userLogin, resetPassword,
+  userCreate, userLogin,
 } from '../src/firebase/auth-firebase.js';
 import { register } from '../src/register/register.js';
 import { login } from '../src/login/login.js';
@@ -82,7 +82,7 @@ describe('userCreate', () => {
   });
   it('Deverá receber um erro se não conseguir realizar o cadastro', async () => {
     const erro = {
-      default: 'Não foi possível realizar seu cadastro',
+      code: 'auth/internal-error',
     };
     userCreate.mockRejectedValueOnce(erro);
     const email = 'teste@te';
@@ -146,7 +146,7 @@ it('Deverá receber um erro se a senha estiver incorreta', async () => {
   form.submit();
   await new Promise(process.nextTick);
   expect(userLogin).toHaveBeenCalledWith(email, password);
-  expect(feedback.innerHTML).toEqual('Senha incorreta');
+  expect(feedback.innerHTML).toEqual('E-mail ou senha incorreta');
   expect(userLogin).toHaveBeenCalledTimes(2);
 });
 it('Deverá receber um erro se o E-mail for inválido', async () => {
@@ -193,7 +193,7 @@ it('Deverá receber um erro se o Usuário não for encontrado', async () => {
 });
 it('Deverá receber um erro se não for possivel realizar o Login', async () => {
   const erro = {
-    default: 'Opsss!ocorreu um erro Tente novamente',
+    code: 'auth/internal-error',
   };
   userLogin.mockRejectedValueOnce(erro);
   const email = 'teste@test';
@@ -209,12 +209,6 @@ it('Deverá receber um erro se não for possivel realizar o Login', async () => 
   form.submit();
   await new Promise(process.nextTick);
   expect(userLogin).toHaveBeenCalledWith(email, password);
-  expect(feedback.innerHTML).toEqual('Opsss!ocorreu um erro Tente novamente.');
+  expect(feedback.innerHTML).toEqual('Opsss! Não foi possivel realizar o Login, tente novamente..');
   expect(userLogin).toHaveBeenCalledTimes(5);
-});
-
-describe('resetPassword', () => {
-  it('Deverá ser uma função', () => {
-    expect(typeof resetPassword).toBe('function');
-  });
 });

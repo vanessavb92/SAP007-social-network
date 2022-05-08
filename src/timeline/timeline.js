@@ -2,7 +2,7 @@ import '../firebase/firebase.js';
 import { auth, userLogout } from '../firebase/auth-firebase.js';
 import { addPosts, orderPosts } from '../firebase/firestore.js';
 import { templatePostFeed } from './template-all-posts.js';
-// TIMELINE - TEXTAREA PARA O USUARIO LOGADO ESCREVER E 2 BOTÕES (SAIR E POSTAR)
+
 export const timeline = () => {
   const feedCreate = document.createElement('div');
   const templateFeed = `

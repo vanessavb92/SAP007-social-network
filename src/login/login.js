@@ -79,7 +79,7 @@ export const login = () => {
         .catch((error) => {
           if (error.code === 'auth/wrong-password') {
             feedback.classList.add('error');
-            feedback.innerHTML = 'Senha incorreta';
+            feedback.innerHTML = 'E-mail ou senha incorreta';
           } else if (error.code === 'auth/invalid-email') {
             feedback.classList.add('error');
             feedback.innerHTML = 'E-mail inválido';
@@ -88,7 +88,7 @@ export const login = () => {
             feedback.innerHTML = 'Usuário não encontrado';
           } else {
             feedback.classList.add('error');
-            feedback.innerHTML = 'Opsss!ocorreu um erro Tente novamente.';
+            feedback.innerHTML = 'Opsss! Não foi possivel realizar o Login, tente novamente..';
           }
           const errorMessage = error.message;
           return errorMessage;
