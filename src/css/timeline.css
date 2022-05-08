@@ -27,6 +27,7 @@
 .post-container {
   margin-top: 1em;
   margin-right: 15%;
+  margin-bottom: 2em;
 }
 
 .post-div {
@@ -82,7 +83,7 @@
 
 .message-feed {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   word-break: break-word;
   margin: 1em;
   font-size: 15px;

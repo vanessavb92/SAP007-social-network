@@ -16,6 +16,9 @@
   .post-div {
     margin: 1em 3em;
   }
+  .post-container{
+    margin-bottom: 1em;
+  }
 }
 @media (min-width: 600px) and (max-width: 800px) {
   .nav-logo {
@@ -23,20 +26,17 @@
   }
   .button {
     padding: 8px 40px;
-    font-size: 15px;
   }
   .text-content {
     margin: 3em 2em 2em;
-  }
-  .text-content p {
-    font-size: large;
-    margin: 2em 3em;
   }
 
   .input-names {
     padding: 15px 5px;
     margin: 0.5em 5em;
   }
+
+
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
@@ -127,6 +127,19 @@
   .post-container {
     margin-bottom: 3em;
 }
+.input-names {
+  margin: 0.5em 7em;
+}
+.login-container {
+  justify-content: flex-end;
+  margin-right: 7em;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+.text-forgot {
+  margin-bottom: 1em;
+  margin-left: 5%;
+}
 
 }
 
@@ -154,10 +167,11 @@
   }
   .home-image {
     position: absolute;
-    width: 35em;
-    bottom: 6em;
-    left: 50em;
+    width: 30em;
+    bottom: 40%;
+    left: 60%;
   }
+  
   .credit {
     justify-content: center;
     margin: auto;
@@ -181,5 +195,16 @@
 .icon-img {
   margin-right: 1em;
 }
-
+.input-names {
+  padding: 10px 8px;
+  margin: 0.5em 16em;
+}
+.login-container {
+  justify-content: flex-end;
+  margin-right: 13%;
+  margin-top: 2em;
+}
+.text-forgot {
+  margin-left: 9%;
+}
 }

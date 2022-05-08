@@ -4,23 +4,28 @@ import { resetPassword } from '../firebase/auth-firebase.js';
 export const reset = () => {
   const resetContainer = document.createElement('div');
   const templateReset = `
-  <section class="header-home">
-    <h2 class="subtitle">Esqueci a senha</h2>
-    <section class="text-content">
-      <p class="text-reset">Uma nova senha será enviada
+  <section class='header-home'>
+    <h2 class='subtitle'>Esqueci a senha</h2>
+    <section class='text-content'>
+      <p class='text-reset'>Uma nova senha será enviada
         ao seu email de cadastro</p>
       </div>
-      <form id="form-reset">
-        <div class="reset-input">
-          <input type="email" id="email" class="input-names" placeholder="Digite  o seu email" autocomplet required>
+      <form id='form-reset'>
+        <div class='reset-input'>
+          <input type='email' id='email' class='input-names' placeholder='Digite  o seu email' autocomplet required>
         </div>
-        <div id="botao-recuperar">
-          <div class="container-btn">
-            <button id="reset" class="reset button" type="submit">Enviar</button>
+        <div id='botao-recuperar'>
+          <div class='container-btn'>
+            <button id='reset' class='reset button' type='submit'>Enviar</button>
           </div>
       </form>
-      <span class="feedback"></span>
+      <span class='feedback'></span>
     </section>
+
+    <div class='back-container'>
+    <a href='#login' class='back-home'>Voltar a tela de Login</a>
+  </div>
+
   </section>
     `;
 
