@@ -10,8 +10,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-  // eslint-disable-next-line
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+} from './export.js';
 
 const db = getFirestore();
 
@@ -67,7 +66,7 @@ export async function like(itemId, userEmail) {
       likes: arrayUnion(userEmail),
     });
   } catch (e) {
-    return console.log('Erro Like', e);
+    return null;
   }
 }
 
@@ -79,6 +78,6 @@ export async function dislike(itemId, userEmail) {
       likes: arrayRemove(userEmail),
     });
   } catch (e) {
-    return console.log('Erro dislike', e);
+    return null;
   }
 }
