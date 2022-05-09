@@ -80,9 +80,8 @@ Pesquisa por gênero de séries favorito/mais assistidos:
 <br>
 
 Pesquisa para saber se costuma recomendar séries/filmes para amigos:
-<img  width="80%" src="">
+<img  width="80%" src="src/img-readme/recomenda-para-amigos.png">
 
-![Recomenda](src/img-readme/recomenda-para-amigos.png)
 
 <br>
 

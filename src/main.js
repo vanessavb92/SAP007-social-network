@@ -1,5 +1,3 @@
-import './firebase/firebase.js';
-
 import { home } from './home/home.js';
 import { login } from './login/login.js';
 import { register } from './register/register.js';

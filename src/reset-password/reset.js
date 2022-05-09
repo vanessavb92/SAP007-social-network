@@ -1,4 +1,3 @@
-import '../firebase/firebase.js';
 import { resetPassword } from '../firebase/auth-firebase.js';
 
 export const reset = () => {
