@@ -1,5 +1,6 @@
-import '../firebase/firebase.js';
+import '../firebase/initialize-firebase.js';
 import { userLogin, googleLogin } from '../firebase/auth-firebase.js';
+import { errors } from '../error/error.js';
 
 export const login = () => {
   const loginContainer = document.createElement('div');
@@ -77,19 +78,9 @@ export const login = () => {
           window.location.hash = '#timeline';
         })
         .catch((error) => {
-          if (error.code === 'auth/wrong-password') {
-            feedback.classList.add('error');
-            feedback.innerHTML = 'E-mail ou senha incorreta';
-          } else if (error.code === 'auth/invalid-email') {
-            feedback.classList.add('error');
-            feedback.innerHTML = 'E-mail inválido';
-          } else if (error.code === 'auth/user-not-found') {
-            feedback.classList.add('error');
-            feedback.innerHTML = 'Usuário não encontrado';
-          } else {
-            feedback.classList.add('error');
-            feedback.innerHTML = 'Opsss! Não foi possivel realizar o Login, tente novamente..';
-          }
+          feedback.classList.add('error');
+          const messageError = errors(error.code);
+          feedback.innerHTML = (messageError);
           const errorMessage = error.message;
           return errorMessage;
         });

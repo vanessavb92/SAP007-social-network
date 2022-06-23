@@ -1,6 +1,6 @@
 import { auth, userLogout } from '../firebase/auth-firebase.js';
 import { addPosts, orderPosts } from '../firebase/firestore.js';
-import { templatePostFeed } from './template-all-posts.js';
+import { templatePostFeed } from './template-posts.js';
 
 export const timeline = () => {
   const feedCreate = document.createElement('div');

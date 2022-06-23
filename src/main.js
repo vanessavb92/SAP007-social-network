@@ -26,9 +26,6 @@ const contentChange = () => {
     case '#reset':
       content.appendChild(reset());
       break;
-    case '#home':
-      content.appendChild(home());
-      break;
     default:
       content.appendChild(home());
   }

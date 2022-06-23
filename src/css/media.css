@@ -1,4 +1,7 @@
 @media (min-width: 425px) and (max-width: 768px) {
+  .text-content {
+    text-align: center;
+  }
   .user-info {
     align-items: center;
     justify-content: flex-start;
@@ -19,14 +22,23 @@
   .post-container {
     margin-bottom: 1em;
   }
+  .text-participate {
+    justify-content: center;
+  }
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 @media (min-width: 600px) and (max-width: 800px) {
   .nav-logo {
     width: 8em;
   }
+
   .button {
     padding: 8px 40px;
   }
+
   .text-content {
     margin: 3em 2em 2em;
   }
@@ -35,10 +47,22 @@
     padding: 15px 5px;
     margin: 0.5em 5em;
   }
+
+  .text-participate {
+    justify-content: flex-start;
+  }
+
+  .text-credit {
+    justify-content: center;
+  }
+
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
-  /* HOME */
   .home-image {
     width: 22em;
     position: absolute;
@@ -49,8 +73,9 @@
     margin: 3em 2em;
   }
   .text-participate {
-    justify-content: flex-start;
     font-size: medium;
+    align-items: center;
+    justify-content: flex-start;
   }
   .home-container {
     margin-bottom: 8em;
@@ -58,6 +83,13 @@
     margin-left: 3em;
   }
   .credit {
+    justify-content: space-evenly;
+  }
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .text-credit{
     justify-content: center;
   }
   .input-names {
@@ -79,6 +111,9 @@
   .modal-content {
     margin: 13% auto;
   }
+  .footer{
+    bottom: 0;
+  }
 }
 @media (min-width: 900px) and (max-width: 1024px) {
   .text-content {
@@ -86,6 +121,10 @@
   }
   .post-div {
     margin: 1em 13em;
+  }
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
   }
 }
 @media (min-width: 1025px) and (max-width: 1600px) {
@@ -114,7 +153,14 @@
     right: 2em;
   }
   .credit {
+    justify-content: space-evenly;
+  }
+  .text-credit {
     justify-content: center;
+  }
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
   }
   .post-div {
     margin: 1em 12em;
@@ -138,6 +184,9 @@
     margin-bottom: 1em;
     margin-left: 5%;
   }
+  .footer{
+    bottom: 0;
+  }
 }
 
 @media (min-width: 1601px) and (max-width: 2560px) {
@@ -149,19 +198,13 @@
     font-size: large;
   }
   .text-participate {
-    justify-content: flex-start;
-    margin: 2em 70% 0em 0em;
+    justify-content: space-evenly;
   }
   .home-container {
     justify-content: flex-start;
     margin-left: 10%;
   }
-  .container-image {
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-    margin-bottom: 24vw;
-  }
+  
   .home-image {
     position: absolute;
     width: 30em;
@@ -170,9 +213,16 @@
   }
 
   .credit {
-    justify-content: center;
+    justify-content: space-evenly;
     margin: auto;
     font-size: large;
+  }
+  .text-participate {
+    justify-content: center;
+  }
+  .credit-name {
+    margin-left: 1em;
+    margin-right: 1em;
   }
   section .post-div {
     margin: 2em 16em;
